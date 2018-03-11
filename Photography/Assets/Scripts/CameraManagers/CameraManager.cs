@@ -8,6 +8,8 @@ public class CameraManager : MonoBehaviour {
 	private Camera camaraPosta;
 	private bool modoTiempoReal=true;
 
+	public Slider slider;
+
 	private CameraLightsManager clm;
 	private CameraBotoncitosManager cbm;
 	private CameraScreenManager csm;
@@ -61,8 +63,9 @@ public class CameraManager : MonoBehaviour {
 	}
 		
 
-	public void ajustarZoom(float valor){
+	public void ajustarZoom(){
 		if (modoTiempoReal) {
+			float valor = slider.value;
 			camaraPosta.fieldOfView = 60 + valor * -1 * 60;
 		}
 	}
