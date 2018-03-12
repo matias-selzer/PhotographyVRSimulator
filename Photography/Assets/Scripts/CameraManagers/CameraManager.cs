@@ -14,7 +14,6 @@ public class CameraManager : MonoBehaviour {
 	private CameraBotoncitosManager cbm;
 	private CameraScreenManager csm;
 	private CameraPicturesManager cpm;
-	//private CameraRaycastManager crm;
 
 
 	// Use this for initialization
@@ -24,35 +23,20 @@ public class CameraManager : MonoBehaviour {
 		clm = GetComponent<CameraLightsManager> ();
 		cbm = GetComponent<CameraBotoncitosManager> ();
 		csm = GetComponent<CameraScreenManager> ();
-		//crm = GetComponent<CameraRaycastManager> ();
 		cpm = GetComponent<CameraPicturesManager> ();
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		/*isGrabbed=(GetComponent<VRTK_InteractableObject>().enabled);
-		if (crm.estaApuntandoObjetoFotografiable(camaraPosta)) {
-			clm.encenderLuzVerde ();
-		} else {
-			clm.apagarLuzVerde();
-		}*/
-		if (Input.GetKeyDown (KeyCode.Q)) {
-			cambiarModo ();
-		}
 	}
 
 	public void sacarFoto(){
 		if (modoTiempoReal && cpm.hayCapacidad()) {
 			GetComponent<AudioSource> ().Play ();
-			//string nombre = crm.chequearColision (camaraPosta);
-
-			//cpm.agregarNombre (nombre);
 			cpm.guardarImagen (camaraPosta);
 			cpm.actualizarCapacidad ();
-			if (cpm.memoriaEstaLLena()) {
-				clm.encenderLuzRoja ();
-			}
+
 		}
 	}
 
@@ -87,9 +71,8 @@ public class CameraManager : MonoBehaviour {
 		if (!modoTiempoReal) {
 			csm.activarPantallaVista ();
 			cpm.actualizarCapacidad ();
-			//cbm.presionarBotonPlay ();
+			cpm.actualizarPictureNumber ();
 		} else {
-			//cbm.restaurarBotonPlay ();
 			csm.desactivarPantallaVista ();
 			cpm.actualizarPictureNumber ();
 		}

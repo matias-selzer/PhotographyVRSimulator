@@ -59,7 +59,11 @@ public class CameraPicturesManager : MonoBehaviour {
 		string salida = "";
 		if ((pos + 1) < 10)
 			salida = "0";
-		csm.actualizarPictureNumber( salida+(pos + 1) + " - " + capacity);
+		salida = salida + (pos + 1) + " - ";
+		if (listaImagenes.Count < 10)
+			salida += "0";
+		salida += listaImagenes.Count;
+		csm.actualizarPictureNumber( salida );
 	}
 
 	public bool hayCapacidad(){
