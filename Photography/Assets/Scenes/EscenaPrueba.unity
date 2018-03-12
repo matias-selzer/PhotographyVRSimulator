@@ -113,6 +113,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &81270627 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114952998478323398, guid: 46a8bca10567fef478747012c1b59fb5,
+    type: 2}
+  m_PrefabInternal: {fileID: 809606276}
+  m_Script: {fileID: 11500000, guid: a0ae7b67ac34272448aaa9155a01bb88, type: 3}
 --- !u!1 &297980171
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,6 +321,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114977771513622540, guid: 46a8bca10567fef478747012c1b59fb5,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4841825569018142, guid: 46a8bca10567fef478747012c1b59fb5, type: 2}
       propertyPath: m_LocalPosition.x
       value: 249.71309
@@ -362,29 +373,34 @@ Prefab:
       propertyPath: m_AnchorMax.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 224253986742326714, guid: 46a8bca10567fef478747012c1b59fb5,
+    - target: {fileID: 114977771513622540, guid: 46a8bca10567fef478747012c1b59fb5,
         type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 36.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 224253986742326714, guid: 46a8bca10567fef478747012c1b59fb5,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 92.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114789241103129452, guid: 46a8bca10567fef478747012c1b59fb5,
-        type: 2}
-      propertyPath: m_Color.r
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114789241103129452, guid: 46a8bca10567fef478747012c1b59fb5,
+    - target: {fileID: 114977771513622540, guid: 46a8bca10567fef478747012c1b59fb5,
         type: 2}
-      propertyPath: m_Color.g
-      value: 1
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114789241103129452, guid: 46a8bca10567fef478747012c1b59fb5,
+    - target: {fileID: 114977771513622540, guid: 46a8bca10567fef478747012c1b59fb5,
         type: 2}
-      propertyPath: m_Color.b
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 81270627}
+    - target: {fileID: 114977771513622540, guid: 46a8bca10567fef478747012c1b59fb5,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: deleteCurrentPicture
+      objectReference: {fileID: 0}
+    - target: {fileID: 114977771513622540, guid: 46a8bca10567fef478747012c1b59fb5,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114431880082784678, guid: 46a8bca10567fef478747012c1b59fb5,
+        type: 2}
+      propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

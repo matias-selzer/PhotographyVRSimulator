@@ -40,6 +40,11 @@ public class CameraManager : MonoBehaviour {
 		}
 	}
 
+	public void eliminarFoto(){
+		cpm.eliminarFoto ();
+		cpm.actualizarCapacidad ();
+	}
+
 	public void toogleFlash(){
 		if (modoTiempoReal) {
 			clm.toogleFlash (cbm);
@@ -67,15 +72,16 @@ public class CameraManager : MonoBehaviour {
 
 
 	public void cambiarModo(){
-		modoTiempoReal =!modoTiempoReal;
-		if (!modoTiempoReal) {
-			csm.activarPantallaVista ();
-			cpm.actualizarCapacidad ();
-			cpm.actualizarPictureNumber ();
-		} else {
-			csm.desactivarPantallaVista ();
-			cpm.actualizarPictureNumber ();
-		}
+			modoTiempoReal = !modoTiempoReal;
+			if (!modoTiempoReal && cpm.hayFotos ()) {
+				csm.activarPantallaVista ();
+				cpm.actualizarCapacidad ();
+				cpm.actualizarPictureNumber ();
+			} else {
+				csm.desactivarPantallaVista ();
+				cpm.actualizarPictureNumber ();
+			}
+
 	}
 
 

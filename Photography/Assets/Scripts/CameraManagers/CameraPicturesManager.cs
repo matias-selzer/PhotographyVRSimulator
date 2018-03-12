@@ -39,6 +39,16 @@ public class CameraPicturesManager : MonoBehaviour {
 		csm.actualizarImagenVista (image);
 	}
 
+	public void eliminarFoto(){
+		listaImagenes.RemoveAt (pos);
+		if (hayFotos ()) {
+			pos = pos % listaImagenes.Count;
+			csm.actualizarImagenVista ((Texture2D)listaImagenes [pos]);
+		} else
+			transform.GetComponentInParent<CameraManager> ().cambiarModo ();
+		actualizarPictureNumber ();
+	}
+
 
 
 	public static string ScreenShotName(int width, int height) {
