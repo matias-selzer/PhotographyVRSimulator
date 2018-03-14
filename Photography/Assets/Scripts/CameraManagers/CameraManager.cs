@@ -18,6 +18,9 @@ public class CameraManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//solo modo prueba
+		//Screen.SetResolution(800,600,true);
+
 		camaraPosta = gameObject.GetComponent<Camera>();
 
 		clm = GetComponent<CameraLightsManager> ();
@@ -32,6 +35,7 @@ public class CameraManager : MonoBehaviour {
 	}
 
 	public void sacarFoto(){
+		Debug.Log ("quieren sacar foto");
 		if (modoTiempoReal && cpm.hayCapacidad()) {
 			GetComponent<AudioSource> ().Play ();
 			cpm.guardarImagen (camaraPosta);

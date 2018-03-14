@@ -109,4 +109,12 @@ public class CameraPicturesManager : MonoBehaviour {
 		csm.actualizarImagenVista (null);
 	}
 
+	public Texture2D imagenActual(){
+		return ((Texture2D)(listaImagenes [pos]));
+	}
+
+	public ArrayList obtenerImagenes(){
+		return listaImagenes;
+	}
+
 }
