@@ -8,7 +8,9 @@ public class CameraPicturesManager : MonoBehaviour {
 	private ArrayList listaImagenes;
 	//private ArrayList objetosFotografiados;
 	private int capacity=32;
+	private bool mustSave;
 
+	Texture2D ultima;
 
 	private CameraScreenManager csm;
 
@@ -28,15 +30,40 @@ public class CameraPicturesManager : MonoBehaviour {
 	}
 
 	public void guardarImagen(Camera camaraPosta){
-		RenderTexture currentRT = RenderTexture.active;
+		/*RenderTexture currentRT = RenderTexture.active;
 		RenderTexture.active = camaraPosta.targetTexture;
 		camaraPosta.Render ();
 		Texture2D image = new Texture2D (camaraPosta.targetTexture.width, camaraPosta.targetTexture.height);
 		image.ReadPixels (new Rect (0, 0, camaraPosta.targetTexture.width, camaraPosta.targetTexture.height), 0, 0);
-		image.Apply ();
-		RenderTexture.active = currentRT;
-		listaImagenes.Add (image);
-		csm.actualizarImagenVista (image);
+		image.Apply ();*/
+
+
+		//RenderTexture.active = currentRT;
+		//listaImagenes.Add (image);
+		//csm.actualizarImagenVista (image);
+		//mustSave=true;
+		//StartCoroutine (SnapPhoto ());
+
+		RenderTexture rt = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.Default);        
+		Texture2D screenShot = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
+
+		//no es necesario todas las camaras, puede ser camaraPosta y listo
+		foreach(Camera cam in Camera.allCameras)
+		{
+			cam.targetTexture = rt;
+			cam.Render();
+			cam.targetTexture = null;
+		}
+
+		RenderTexture.active = rt;
+		screenShot.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0, false);
+		Camera.main.targetTexture = null;
+		RenderTexture.active = null;
+		Destroy(rt);
+		screenShot.Apply();
+
+		listaImagenes.Add (screenShot);
+		csm.actualizarImagenVista (screenShot);
 	}
 
 	public void eliminarFoto(){
@@ -116,5 +143,34 @@ public class CameraPicturesManager : MonoBehaviour {
 	public ArrayList obtenerImagenes(){
 		return listaImagenes;
 	}
+
+
+	/*
+	IEnumerator SnapPhoto() {
+		yield return new WaitForEndOfFrame();
+
+		RenderTexture rt = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.Default);        
+		Texture2D screenShot = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
+
+		foreach(Camera cam in Camera.allCameras)
+		{
+			cam.targetTexture = rt;
+			cam.Render();
+			cam.targetTexture = null;
+		}
+
+		RenderTexture.active = rt;
+		screenShot.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0, false);
+		Camera.main.targetTexture = null;
+		RenderTexture.active = null;
+		Destroy(rt);
+		screenShot.Apply();
+		//yield return 0;
+
+		listaImagenes.Add (screenShot);
+		csm.actualizarImagenVista (screenShot);
+	}
+*/
+
 
 }
