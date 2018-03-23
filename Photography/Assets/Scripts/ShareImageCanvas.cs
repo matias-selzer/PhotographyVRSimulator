@@ -29,8 +29,8 @@ public class ShareImageCanvas : MonoBehaviour {
 		// wait for graphics to render
 		yield return new WaitForEndOfFrame();
 
-		byte[] dataToSave = img.EncodeToPNG();
-		string destination = Path.Combine(Application.persistentDataPath,System.DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".png");
+		byte[] dataToSave = img.EncodeToJPG();
+		string destination = Path.Combine(Application.persistentDataPath,System.DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".jpg");
 		File.WriteAllBytes(destination, dataToSave);
 		if(!Application.isEditor)
 		{
@@ -71,8 +71,8 @@ public class ShareImageCanvas : MonoBehaviour {
 			AndroidJavaClass uriClass = new AndroidJavaClass ("android.net.Uri");
 			AndroidJavaObject objArrayList = new AndroidJavaObject("java.util.ArrayList");
 			for (int i = 0; i < imagenes.Count; i++) {
-				byte[] dataToSave = ((Texture2D)imagenes [i]).EncodeToPNG ();
-				string destination = Path.Combine (Application.persistentDataPath, System.DateTime.Now.ToString ("yyyy-MM-dd-HHmmss"+"-"+(i+1)) + ".png");
+				byte[] dataToSave = ((Texture2D)imagenes [i]).EncodeToJPG ();
+				string destination = Path.Combine (Application.persistentDataPath, System.DateTime.Now.ToString ("yyyy-MM-dd-HHmmss"+"-"+(i+1)) + ".jpg");
 				File.WriteAllBytes (destination, dataToSave);
 				AndroidJavaObject uriObject = uriClass.CallStatic<AndroidJavaObject> ("parse","file://" + destination );
 				objArrayList.Call<bool>("add", uriObject);
@@ -89,6 +89,7 @@ public class ShareImageCanvas : MonoBehaviour {
 			AndroidJavaObject currentActivity = unity.GetStatic<AndroidJavaObject>("currentActivity");
 
 			currentActivity.Call("startActivity", intentObject);
+
 		}
 		isProcessing = false;
 

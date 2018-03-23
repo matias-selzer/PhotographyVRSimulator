@@ -30,20 +30,6 @@ public class CameraPicturesManager : MonoBehaviour {
 	}
 
 	public void guardarImagen(Camera camaraPosta){
-		/*RenderTexture currentRT = RenderTexture.active;
-		RenderTexture.active = camaraPosta.targetTexture;
-		camaraPosta.Render ();
-		Texture2D image = new Texture2D (camaraPosta.targetTexture.width, camaraPosta.targetTexture.height);
-		image.ReadPixels (new Rect (0, 0, camaraPosta.targetTexture.width, camaraPosta.targetTexture.height), 0, 0);
-		image.Apply ();*/
-
-
-		//RenderTexture.active = currentRT;
-		//listaImagenes.Add (image);
-		//csm.actualizarImagenVista (image);
-		//mustSave=true;
-		//StartCoroutine (SnapPhoto ());
-
 		RenderTexture rt = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.Default);        
 		Texture2D screenShot = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
 
@@ -78,12 +64,12 @@ public class CameraPicturesManager : MonoBehaviour {
 
 
 
-	public static string ScreenShotName(int width, int height) {
-		return string.Format("{0}/screenshots/screen_{1}x{2}_{3}.png", 
+	/*public static string ScreenShotName(int width, int height) {
+		return string.Format("{0}/screenshots/screen_{1}x{2}_{3}.jpg", 
 			Application.dataPath, 
 			width, height, 
 			System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
-	}
+	}*/
 
 	public void actualizarCapacidad(){
 		string salida = "";
@@ -123,6 +109,13 @@ public class CameraPicturesManager : MonoBehaviour {
 	}
 
 	public bool hayFotos(){
+		Photo p = new Photo ();
+		p.set (Texture2D.blackTexture);
+		PhotoRepository pr = new PhotoRepository (3);
+		pr.add (p);
+
+		Texture2D t = pr.get (0).get ();
+
 		return listaImagenes.Count > 0;
 	}
 
@@ -145,32 +138,7 @@ public class CameraPicturesManager : MonoBehaviour {
 	}
 
 
-	/*
-	IEnumerator SnapPhoto() {
-		yield return new WaitForEndOfFrame();
 
-		RenderTexture rt = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.Default);        
-		Texture2D screenShot = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
-
-		foreach(Camera cam in Camera.allCameras)
-		{
-			cam.targetTexture = rt;
-			cam.Render();
-			cam.targetTexture = null;
-		}
-
-		RenderTexture.active = rt;
-		screenShot.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0, false);
-		Camera.main.targetTexture = null;
-		RenderTexture.active = null;
-		Destroy(rt);
-		screenShot.Apply();
-		//yield return 0;
-
-		listaImagenes.Add (screenShot);
-		csm.actualizarImagenVista (screenShot);
-	}
-*/
 
 
 }

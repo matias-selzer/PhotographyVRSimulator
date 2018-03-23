@@ -30,9 +30,6 @@ public class CameraManager : MonoBehaviour {
 
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	}
 
 	public void sacarFoto(){
 		Debug.Log ("quieren sacar foto");
