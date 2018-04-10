@@ -67,5 +67,13 @@ public class ViewModeGUI : MonoBehaviour {
 		myViewMode.updateGUI ();
 	}
 
+	public void shareActualPhotoEvent(){
+		myViewMode.shareActualPhoto ();
+	}
+
+	public void shareAllPhotosEvent(){
+		myViewMode.shareAllPhotos ();
+	}
+
 
 }

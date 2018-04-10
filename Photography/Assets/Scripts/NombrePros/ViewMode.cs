@@ -61,4 +61,12 @@ public class ViewMode {
 	public bool noPhotos(){
 		return repo.isEmpty ();
 	}
+
+	public void shareActualPhoto(){
+		new SinglePhotoShareController ().share (repo.get (posActual));
+	}
+
+	public void shareAllPhotos(){
+		new MultiplePhotoShareController ().ButtonShareAll (repo.getFullRepository ());
+	}
 }
