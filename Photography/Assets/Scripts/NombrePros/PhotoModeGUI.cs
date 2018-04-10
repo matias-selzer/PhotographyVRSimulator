@@ -7,6 +7,8 @@ public class PhotoModeGUI : MonoBehaviour {
 
 	public Text photosLeft;
 	public GameObject photoModeContainer, viewModeContainer;
+	public Slider sliderZoom;
+	public Camera mainCamera;
 
 	private PhotoMode myPhotoMode;
 
@@ -27,6 +29,10 @@ public class PhotoModeGUI : MonoBehaviour {
 	public void updateGUI(int cant, int capacity){
 		string s = cant + " - " + capacity;
 		photosLeft.text = s;
+	}
+
+	public void zoomEvent(){
+		myPhotoMode.updateZoom (sliderZoom.value, mainCamera);
 	}
 
 }

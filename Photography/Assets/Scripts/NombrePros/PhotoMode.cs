@@ -27,6 +27,10 @@ public class PhotoMode {
 		myGUI.updateGUI (repo.getCant (), repo.getCapacity ());
 	}
 
+	public void updateZoom(float value, Camera cam){
+		cam.fieldOfView = 60 + value * -1 * 60;
+	}
+
 
 
 

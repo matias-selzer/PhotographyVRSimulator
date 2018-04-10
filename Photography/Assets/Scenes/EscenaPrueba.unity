@@ -3215,6 +3215,8 @@ MonoBehaviour:
   photosLeft: {fileID: 1158657205}
   photoModeContainer: {fileID: 1038531832}
   viewModeContainer: {fileID: 235379064}
+  sliderZoom: {fileID: 0}
+  mainCamera: {fileID: 0}
 --- !u!1 &975580512
 GameObject:
   m_ObjectHideFlags: 0
@@ -3279,8 +3281,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 939251217}
-        m_MethodName: ajustarZoom
+      - m_Target: {fileID: 1038531836}
+        m_MethodName: zoomEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3982,6 +3984,8 @@ MonoBehaviour:
   photosLeft: {fileID: 1158657205}
   photoModeContainer: {fileID: 1038531832}
   viewModeContainer: {fileID: 235379064}
+  sliderZoom: {fileID: 975580513}
+  mainCamera: {fileID: 939251224}
 --- !u!1 &1039988844
 GameObject:
   m_ObjectHideFlags: 0
