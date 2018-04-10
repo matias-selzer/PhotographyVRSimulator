@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ViewModeGUI : MonoBehaviour {
 
-	public GameObject photoModeContainer, viewModeContainer;
+	public GameObject photoModeContainer, viewModeContainer,deleteScreen;
 	public Text posAndCapacity;
 	public RawImage screen;
 
@@ -32,7 +32,16 @@ public class ViewModeGUI : MonoBehaviour {
 	}
 
 	public void deleteEvent(){
-		myViewMode.delete ();
+		myViewMode.delete (this);
+		hideDeleteScreen ();
+	}
+
+	public void showDeleteScreen(){
+		deleteScreen.SetActive (true);
+	}
+
+	public void hideDeleteScreen(){
+		deleteScreen.SetActive (false);
 	}
 
 	public void changeModeEvenet(){
@@ -50,7 +59,11 @@ public class ViewModeGUI : MonoBehaviour {
 	}
 
 	void OnEnable(){
-		myViewMode.updatePhoto ();
+		if (myViewMode.noPhotos ())
+			changeModeEvenet ();
+		else {
+			myViewMode.updatePhoto ();
+		}
 		myViewMode.updateGUI ();
 	}
 

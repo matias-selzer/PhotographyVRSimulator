@@ -44,7 +44,21 @@ public class ViewMode {
 		myGUI.updateGUI (posActual+1, repo.getCapacity ());
 	}
 
-	public void delete(){
+	public void delete(ViewModeGUI vmg){
+		Debug.Log ("pos actual " + posActual);
+		repo.delete (posActual);
+		if (posActual!=0 && posActual == repo.getCant ())
+			posActual--;
 
+		if (repo.isEmpty ())
+			vmg.changeModeEvenet ();
+		else {
+			updatePhoto ();
+			updateGUI ();
+		}
+	}
+
+	public bool noPhotos(){
+		return repo.isEmpty ();
 	}
 }

@@ -990,6 +990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   photoModeContainer: {fileID: 1038531832}
   viewModeContainer: {fileID: 235379064}
+  deleteScreen: {fileID: 81270626}
   posAndCapacity: {fileID: 2006482826}
   screen: {fileID: 1006731408}
 --- !u!1 &257711703
@@ -1619,8 +1620,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 81270627}
-        m_MethodName: deleteCurrentPicture
+      - m_Target: {fileID: 235379067}
+        m_MethodName: deleteEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3199,6 +3200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   photoModeContainer: {fileID: 1038531832}
   viewModeContainer: {fileID: 235379064}
+  deleteScreen: {fileID: 0}
   posAndCapacity: {fileID: 2006482826}
   screen: {fileID: 1006731408}
 --- !u!114 &939251228
@@ -3731,8 +3733,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 81270627}
-        m_MethodName: desactivarPanel
+      - m_Target: {fileID: 235379067}
+        m_MethodName: hideDeleteScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5210,7 +5212,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 235379067}
-        m_MethodName: deleteEvent
+        m_MethodName: showDeleteScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
