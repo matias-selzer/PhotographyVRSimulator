@@ -8,6 +8,8 @@ public class ViewModeGUI : MonoBehaviour {
 	public GameObject photoModeContainer, viewModeContainer,deleteScreen;
 	public Text posAndCapacity;
 	public RawImage screen;
+	public SinglePhotoShareController singleShareC;
+	public MultiplePhotoShareController multiShareC;
 
 	private ViewMode myViewMode;
 
@@ -68,11 +70,11 @@ public class ViewModeGUI : MonoBehaviour {
 	}
 
 	public void shareActualPhotoEvent(){
-		myViewMode.shareActualPhoto ();
+		myViewMode.shareActualPhoto (singleShareC);
 	}
 
 	public void shareAllPhotosEvent(){
-		myViewMode.shareAllPhotos ();
+		myViewMode.shareAllPhotos (multiShareC);
 	}
 
 
