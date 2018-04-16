@@ -9,6 +9,7 @@ public class PhotoModeGUI : MonoBehaviour {
 	public GameObject photoModeContainer, viewModeContainer;
 	public Slider sliderZoom;
 	public Camera mainCamera;
+	public AudioSource sound;
 
 	private PhotoMode myPhotoMode;
 
@@ -19,6 +20,7 @@ public class PhotoModeGUI : MonoBehaviour {
 	
 	public void takePhotoEvent(){
 		myPhotoMode.takePhoto ();
+		sound.Play ();
 	}
 
 	public void changeModeEvent(){

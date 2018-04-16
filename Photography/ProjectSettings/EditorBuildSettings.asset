@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/EscenaPrueba.unity
     guid: ce10cbc2b2134b04e913e24828ea84b8
+  - enabled: 1
+    path: Assets/Scenes/PaisajeChabon.unity
+    guid: e65c92b19e0a6fe4c95ae3c806186bd4

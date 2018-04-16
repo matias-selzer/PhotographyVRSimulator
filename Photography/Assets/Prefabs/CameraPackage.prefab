@@ -2174,6 +2174,7 @@ MonoBehaviour:
   viewModeContainer: {fileID: 1289689218260472}
   sliderZoom: {fileID: 114612031205797690}
   mainCamera: {fileID: 20520922282342836}
+  sound: {fileID: 82653051171129330}
 --- !u!114 &114669032225941168
 MonoBehaviour:
   m_ObjectHideFlags: 1

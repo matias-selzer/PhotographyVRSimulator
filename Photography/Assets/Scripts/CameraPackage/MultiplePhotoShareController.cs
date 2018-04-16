@@ -25,7 +25,7 @@ public class MultiplePhotoShareController : PhotosShareController {
 			AndroidJavaClass uriClass = new AndroidJavaClass ("android.net.Uri");
 			AndroidJavaObject objArrayList = new AndroidJavaObject("java.util.ArrayList");
 			for (int i = 0; i < photoList.Count; i++) {
-				byte[] dataToSave = ((Texture2D)photoList [i]).EncodeToJPG ();
+				byte[] dataToSave = ((Photo)photoList [i]).get().EncodeToJPG ();
 				string destination = Path.Combine (Application.persistentDataPath, System.DateTime.Now.ToString ("yyyy-MM-dd-HHmmss"+"-"+(i+1)) + ".jpg");
 				File.WriteAllBytes (destination, dataToSave);
 				AndroidJavaObject uriObject = uriClass.CallStatic<AndroidJavaObject> ("parse","file://" + destination );
